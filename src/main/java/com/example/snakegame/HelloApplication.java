@@ -168,7 +168,7 @@ public class HelloApplication extends Application {
                 snake.get(0).y++;
                 if (snake.get(0).y>height){
 //                    gameOver=true;
-                    snake.get(0).y=0;
+                    snake.get(0).y=1;
                 }
                 break;
             case LEFT:
@@ -181,7 +181,7 @@ public class HelloApplication extends Application {
             case RIGHT:
                 snake.get(0).x++;
                 if (snake.get(0).x>width){
-                    snake.get(0).x=0;
+                    snake.get(0).x=1;
 //                    gameOver=true;
                 }
                 break;
