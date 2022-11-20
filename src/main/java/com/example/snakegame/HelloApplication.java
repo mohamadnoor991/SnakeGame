@@ -8,7 +8,7 @@ import javafx.scene.canvas.GraphicsContext;
 import javafx.scene.image.Image;
 import javafx.scene.input.KeyCode;
 import javafx.scene.input.KeyEvent;
-import javafx.scene.layout.VBox;
+import javafx.scene.layout.*;
 import javafx.scene.paint.Color;
 import javafx.scene.shape.ArcType;
 import javafx.scene.text.Font;
@@ -47,6 +47,13 @@ public class HelloApplication extends Application {
     public void start(Stage stage) throws IOException {
         newfood();
         VBox root = new VBox();
+
+//set the background of the layout VBox
+//        Image ooo=new Image("https://as1.ftcdn.net/v2/jpg/02/00/80/30/1000_F_200803023_HdTJOyXpiKXIsALglHgXX7CQUGVIAfYI.jpg");
+//        BackgroundImage bakcimage=new BackgroundImage(ooo, BackgroundRepeat.NO_REPEAT,BackgroundRepeat.NO_REPEAT, BackgroundPosition.CENTER,
+//                new BackgroundSize(100,100,true,true,true,true));
+//        root.setBackground(new Background(bakcimage));
+
 
         Canvas canvas = new Canvas(width*cornersize,height*cornersize);
         GraphicsContext gc = canvas.getGraphicsContext2D();
@@ -160,7 +167,7 @@ public class HelloApplication extends Application {
             case UP:
                 snake.get(0).y--;
                 if (snake.get(0).y<0){
-                    snake.get(0).y=height-1;
+                    snake.get(0).y=height-1; //down
 //                    gameOver=true;
                 }
                 break;
@@ -168,7 +175,7 @@ public class HelloApplication extends Application {
                 snake.get(0).y++;
                 if (snake.get(0).y>height){
 //                    gameOver=true;
-                    snake.get(0).y=1;
+                    snake.get(0).y=0;//up
                 }
                 break;
             case LEFT:
@@ -181,7 +188,7 @@ public class HelloApplication extends Application {
             case RIGHT:
                 snake.get(0).x++;
                 if (snake.get(0).x>width){
-                    snake.get(0).x=1;
+                    snake.get(0).x=0;
 //                    gameOver=true;
                 }
                 break;
@@ -201,9 +208,11 @@ public class HelloApplication extends Application {
             }
         }
 
-        //fill background in black
-        gc.setFill(Color.LIGHTPINK);
-        gc.fillRect(0,0,width*cornersize,height*cornersize);
+        //fill background in black // Image background
+        Image ooo=new Image("M.jpg");
+//        gc.setFill(Color.LIGHTPINK);
+//        gc.fillRect(0,0,width*cornersize,height*cornersize);
+        gc.drawImage(ooo,0,0);
 
 
 
@@ -238,7 +247,7 @@ public class HelloApplication extends Application {
 
         gc.setFill(color);
 //        gc.fillOval(foodX*cornersize,foodY*cornersize,cornersize,cornersize); // regular shape of food
-        gc.fillArc(foodX*cornersize,foodY*cornersize,cornersize,cornersize,150,220, ArcType.ROUND); // new shape of food
+        gc.fillArc(foodX*cornersize,foodY*cornersize,cornersize,cornersize,250,250, ArcType.ROUND); // new shape of food
 
 
 
